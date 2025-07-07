@@ -1,4 +1,4 @@
-/* Hannah Alkenbrack */
+/* css/v1.css */
 
 /* ─── VARIABLES ───────────────────────────────────────────────────────── */
 :root {
@@ -10,13 +10,13 @@
   --borderColor:     #3A1935;
 
   /* Banner controls */
-  --bannerMaxWidth: 119em;   
-  --bannerHeight:   20rem;   
+  --bannerMaxWidth: 119em;   /* cap banner’s length */
+  --bannerHeight:   20rem;   /* banner height */
 
   /* Sidebar avatar controls */
-  --avatarSize:     250px;   
-  --avatarOffsetX:  1.7rem;  
-  --avatarOffsetY:  -7rem;   
+  --avatarSize:     250px;   /* avatar width & height */
+  --avatarOffsetX:  0.5rem;  /* shift left a bit */
+  --avatarOffsetY:  -7rem;   /* vertical offset */
 }
 
 /* ─── RESET & BASE ─────────────────────────────────────────────────────── */
@@ -27,7 +27,7 @@
 }
 html, body {
   height: 100%;
-  overflow-x: hidden; 
+  overflow-x: hidden; /* prevent horizontal scroll */
 }
 body {
   background: var(--purpleDarkest);
@@ -58,26 +58,19 @@ body {
 
 /* ─── HEADER AS FULL-WIDTH BANNER ─────────────────────────────────────── */
 .siteHeader {
-  width: 100vw;               
-  max-width: 100%;           
+  width: 100vw; /* full viewport width */
   height: var(--bannerHeight);
-  background: var(--magentaBright);
   overflow: hidden;
-  margin-left: calc(-50vw + 50%); 
+  background: var(--magentaBright);
+  margin-left: calc(-50vw + 50%); /* center the header on the page */
   position: relative;
-  z-index: 10;
 }
 .siteHeader .bannerImage {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 100%; /* fill container width */
+  height: 100%; /* fill banner height */
   object-fit: cover;
   object-position: center;
-}
-.headerBannerTop,
-.headerBannerMain,
-.headerBannerBottom {
-  display: none;
 }
 
 /* ─── GRID LAYOUT ─────────────────────────────────────────────────────── */
@@ -87,15 +80,17 @@ body {
   gap: 2rem;
   flex: 1;
   padding: 2rem;
-  align-items: stretch;   
+  align-items: stretch;
   margin-top: 0;
+  max-width: 100vw; /* prevent overflow */
+  overflow-x: hidden;
 }
 
 /* ─── MAIN CONTENT STRETCH ────────────────────────────────────────────── */
 .mainContent {
   display: flex;
   flex-direction: column;
-  flex: 1;                
+  flex: 1;
 }
 
 /* ─── SIDEBAR ─────────────────────────────────────────────────────────── */
@@ -103,10 +98,11 @@ body {
   position: relative;
   background: var(--purpleDarker);
   padding: calc(var(--bannerHeight)/2 + 1rem) 1rem 1.5rem;
+  overflow: visible; /* allow avatar to overlap */
 }
 .sidebarAvatar {
   position: absolute;
-  top: var(--avatarOffsetY);
+  top: 50%; /* vertically center */
   left: var(--avatarOffsetX);
   width: var(--avatarSize);
   height: var(--avatarSize);
@@ -114,7 +110,8 @@ body {
   object-fit: cover;
   border: 0.125em solid var(--borderColor);
   background: var(--purpleDarkest);
-  transform: none;
+  transform: translateY(-50%);
+  z-index: 10;
 }
 .sidebarMenu {
   list-style: none;
@@ -135,17 +132,17 @@ body {
 .profileMain {
   display: flex;
   gap: 2rem;
-  align-items: stretch;  
-  flex: 1;                
+  align-items: stretch;
+  flex: 1;
 }
 .profileImageContainer {
   flex: 0 0 40%;
-  height: 100%;           
+  height: 100%;
 }
 .profileImage {
   display: block;
   width: 100%;
-  height: 100%;           
+  height: 100%;
   object-fit: cover;
   border-radius: 0.375em;
 }
@@ -267,7 +264,6 @@ body {
 .commissionButton:hover {
   filter: brightness(0.9);
 }
-
 
 /* ─── FEATURED CARDS ─────────────────────────────────────────────────── */
 .featuredGrid {
