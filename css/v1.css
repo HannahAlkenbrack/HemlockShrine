@@ -7,10 +7,10 @@
   --borderColor:     #3A1935;
 
   /* Banner controls */
-  --bannerHeight:   12rem;    /* smaller banner height */
+  --bannerHeight:   12rem;
 
   /* Sidebar avatar controls */
-  --avatarSize:     180px;    /* smaller avatar */
+  --avatarSize:     180px;
 }
 
 /* Reset & base */
@@ -21,22 +21,19 @@
 }
 html, body {
   height: 100%;
-  overflow-x: hidden; /* no horizontal scroll */
+  overflow-x: hidden;
 }
 body {
   background: var(--purpleDarkest);
   color: var(--textLight);
   font-family: Arial, sans-serif;
   line-height: 1.4;
-  padding-top: var(--bannerHeight); /* avoid content behind fixed header */
+  padding-top: 0; /* removed top padding since banner is static */
 }
 
-/* Banner fixed at top */
+/* Banner scrolls with page */
 .siteHeader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: static; /* no longer fixed */
   height: var(--bannerHeight);
   background: var(--magentaBright);
   overflow: hidden;
@@ -49,18 +46,20 @@ body {
   object-position: center;
 }
 
-/* Layout grid with smaller gaps */
+/* Layout grid */
 .layoutGrid {
   display: grid;
-  grid-template-columns: 15rem 1fr 12rem; /* slightly narrower columns */
+  grid-template-columns: 15rem 1fr 12rem;
   gap: 1rem;
   flex: 1;
   padding: 1rem;
   align-items: stretch;
   margin-top: 0;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
-/* Sidebar with centered smaller avatar */
+/* Sidebar with avatar */
 .siteSidebar {
   position: relative;
   background: var(--purpleDarker);
@@ -80,7 +79,7 @@ body {
   position: static;
 }
 
-/* Profile area tweaks */
+/* Profile layout */
 .profileMain {
   display: flex;
   gap: 1rem;
@@ -101,7 +100,7 @@ body {
   flex: 1;
 }
 
-/* Text scaling */
+/* Text styling */
 .profileName {
   font-size: 2rem;
   color: var(--magentaBright);
@@ -111,7 +110,7 @@ body {
   margin-top: 0.5rem;
 }
 
-/* Tabs & panels with smaller gaps */
+/* Tabs & panel spacing */
 .detailTabs {
   display: flex;
   gap: 0.5rem;
@@ -122,7 +121,7 @@ body {
   font-size: 0.9rem;
 }
 
-/* Social buttons smaller padding */
+/* Social section */
 .socialLinks {
   margin: 1.5rem 0;
 }
@@ -131,18 +130,16 @@ body {
   font-size: 0.9rem;
 }
 
-/* Featured grid fewer columns and smaller gap */
+/* Grid & gallery */
 .featuredGrid {
   grid-template-columns: repeat(3, 1fr);
   gap: 0.7rem;
 }
-
-/* Side gallery smaller gap */
 .sideGallery {
   gap: 0.7rem;
 }
 
-/* Footer smaller font */
+/* Footer */
 .siteFooter {
   font-size: 0.8rem;
   padding: 0.75rem 0;
