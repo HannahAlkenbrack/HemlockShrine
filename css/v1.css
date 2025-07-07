@@ -26,34 +26,32 @@ html, body {
   max-width: 100vw;
 }
 
-/* BANNER SCROLLS NATURALLY */
+/* Fixed banner with background image */
 .siteHeader {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   height: var(--bannerHeight);
-  background: var(--magentaBright);
-  width: 100%;
-  overflow: hidden;
-  z-index: 1;
+  background-color: var(--magentaBright);
+  background-image: url('../imgs/banner/vampbanner.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 999;
 }
 
-.bannerImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* LAYOUT AREA */
+/* Push content below fixed banner */
 .layoutGrid {
   display: flex;
   flex-wrap: nowrap;
   gap: 1rem;
-  width: 100%;
   padding: 1rem;
   box-sizing: border-box;
+  margin-top: var(--bannerHeight);
+  width: 100%;
 }
 
-/* LEFT SIDEBAR */
+/* Sidebar */
 .siteSidebar {
   flex: 0 0 15rem;
   background: var(--purpleDarker);
@@ -88,7 +86,7 @@ html, body {
   display: block;
 }
 
-/* CENTER COLUMN */
+/* Main Content */
 .mainContent {
   flex: 2;
   display: flex;
@@ -159,7 +157,6 @@ html, body {
   flex: 1 1 30%;
 }
 
-/* FEATURED CARDS */
 .featuredGrid {
   display: flex;
   flex-wrap: wrap;
@@ -182,7 +179,6 @@ html, body {
   margin-top: 0.5rem;
 }
 
-/* SOCIAL */
 .socialLinks {
   display: flex;
   flex-wrap: wrap;
@@ -199,7 +195,7 @@ html, body {
   font-size: 0.9rem;
 }
 
-/* RIGHT GALLERY */
+/* Gallery */
 .sideGallery {
   flex: 0 0 12rem;
   display: flex;
@@ -213,7 +209,7 @@ html, body {
   object-fit: cover;
 }
 
-/* FOOTER */
+/* Footer */
 .siteFooter {
   text-align: center;
   padding: 1rem;
@@ -222,7 +218,7 @@ html, body {
   width: 100%;
 }
 
-/* RESPONSIVE TWEAKS */
+/* Responsive Tweaks */
 @media (max-width: 1024px) {
   .layoutGrid {
     flex-direction: column;
