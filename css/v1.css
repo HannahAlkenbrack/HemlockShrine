@@ -10,13 +10,13 @@
   --borderColor:     #3A1935;
 
   /* Banner controls */
-  --bannerMaxWidth: 119em;   
-  --bannerHeight:   16rem;   /* slightly shorter banner height */
+  --bannerMaxWidth: 119em;   /* cap banner’s length */
+  --bannerHeight:   20rem;   /* banner height */
 
   /* Sidebar avatar controls */
-  --avatarSize:     250px;
-  --avatarOffsetX:  50%;     /* centered horizontally */
-  --avatarOffsetY:  0;       /* reset vertical offset */
+  --avatarSize:     250px;   /* avatar width & height */
+  --avatarOffsetX:  1.7rem;  /* distance from sidebar’s left edge */
+  --avatarOffsetY:  -7rem;   /* vertical offset */
 }
 
 /* ─── RESET & BASE ─────────────────────────────────────────────────────── */
@@ -27,14 +27,12 @@
 }
 html, body {
   height: 100%;
-  overflow-x: hidden; /* no horizontal scroll */
 }
 body {
   background: var(--purpleDarkest);
   color: var(--textLight);
   font-family: Arial, sans-serif;
   line-height: 1.5;
-  padding-top: var(--bannerHeight); /* space for fixed header */
 }
 .pageContainer {
   display: flex;
@@ -42,24 +40,43 @@ body {
   min-height: 100vh;
 }
 
-/* ─── HEADER AS FIXED BANNER ───────────────────────────────────────────── */
+/* ─── SKIP LINK ───────────────────────────────────────────────────────── */
+.skipLink {
+  position: absolute;
+  left: -62.5em;
+  top: 0.5rem;
+  background: var(--magentaBright);
+  color: var(--textLight);
+  padding: 0.5rem 1rem;
+  transition: left 0.2s;
+  z-index: 200;
+}
+.skipLink:focus {
+  left: 1rem;
+}
+
+/* ─── HEADER AS FULL-WIDTH BANNER ─────────────────────────────────────── */
 .siteHeader {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100vw;
   height: var(--bannerHeight);
-  background: var(--magentaBright);
   overflow: hidden;
-  z-index: 100;
-  margin-left: 0;
+  background: var(--magentaBright);
+  position: relative;
+  z-index: 1; /* behind avatar */
 }
 .siteHeader .bannerImage {
   display: block;
   width: 100%;
-  height: 100%;
+  max-width: var(--bannerMaxWidth);
+  height: auto;
+  margin: 0 auto;
   object-fit: cover;
   object-position: center;
+}
+.headerBannerTop,
+.headerBannerMain,
+.headerBannerBottom {
+  display: none;
 }
 
 /* ─── GRID LAYOUT ─────────────────────────────────────────────────────── */
@@ -69,7 +86,7 @@ body {
   gap: 2rem;
   flex: 1;
   padding: 2rem;
-  align-items: stretch;
+  align-items: stretch;   /* allow each column to stretch */
   margin-top: 0;
 }
 
@@ -77,44 +94,59 @@ body {
 .mainContent {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1;                /* grow to fill grid row */
 }
 
-/* ─── SIDEBAR WITH CENTERED AVATAR ───────────────────────────────────── */
+/* ─── SIDEBAR ─────────────────────────────────────────────────────────── */
 .siteSidebar {
-  position: relative;
+  position: relative; /* needed for avatar absolute positioning */
   background: var(--purpleDarker);
-  padding: 1rem;
-  display: flex;
-  justify-content: center;   /* centers avatar horizontally */
-  align-items: center;       /* centers avatar vertically */
-  height: calc(100vh - var(--bannerHeight) - 4rem); /* fit sidebar height */
+  padding: calc(var(--bannerHeight)/2 + 1rem) 1rem 1.5rem;
+  z-index: 2; /* behind avatar */
 }
 .sidebarAvatar {
-  width: var(--avatarSize);
-  height: var(--avatarSize);
+  position: absolute;
+  top: var(--avatarOffsetY); /* -7rem */
+  left: var(--avatarOffsetX); /* 1.7rem */
+  width: var(--avatarSize);   /* 250px */
+  height: var(--avatarSize);  /* 250px */
   border-radius: 50%;
   object-fit: cover;
   border: 0.125em solid var(--borderColor);
   background: var(--purpleDarkest);
-  position: static;  /* removed absolute positioning */
+  z-index: 10; /* on top */
+  transform: none;
+}
+.sidebarMenu {
+  list-style: none;
+  margin-top: 0.3rem;
+}
+.sidebarMenu li + li {
+  margin-top: 0.6rem;
+}
+.sidebarMenuLink {
+  color: var(--textLight);
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 0;
+  border-bottom: 0.0625em solid var(--borderColor);
 }
 
 /* ─── PROFILE AREA ────────────────────────────────────────────────────── */
 .profileMain {
   display: flex;
   gap: 2rem;
-  align-items: stretch;
-  flex: 1;
+  align-items: stretch;   /* stretch children vertically */
+  flex: 1;                /* fill .mainContent */
 }
 .profileImageContainer {
   flex: 0 0 40%;
-  height: 100%;
+  height: 100%;           /* fill .profileMain */
 }
 .profileImage {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 100%;           /* fill container */
   object-fit: cover;
   border-radius: 0.375em;
 }
@@ -188,12 +220,14 @@ body {
 }
 
 /* ─── COMMISSIONS PANEL ROWS ──────────────────────────────────────────── */
+
 .commissionList {
   margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 0;
 }
+
 .commissionRow {
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -201,15 +235,18 @@ body {
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--borderColor);
 }
+
 .commissionRow:last-child {
   border-bottom: none;
 }
+
 .commissionLabel {
   text-transform: uppercase;
   color: var(--textLight);
   font-weight: bold;
   font-size: 1rem;
 }
+
 .statusText {
   text-transform: uppercase;
   color: var(--textLight);
@@ -217,6 +254,7 @@ body {
   margin: 0 1rem;
   font-size: 0.875rem;
 }
+
 .commissionButton {
   background: var(--magentaBright);
   color: var(--textLight);
@@ -226,9 +264,11 @@ body {
   font-size: 0.875rem;
   transition: filter 0.2s;
 }
+
 .commissionButton:hover {
   filter: brightness(0.9);
 }
+
 
 /* ─── FEATURED CARDS ─────────────────────────────────────────────────── */
 .featuredGrid {
