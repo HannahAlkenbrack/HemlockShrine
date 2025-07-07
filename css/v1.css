@@ -24,14 +24,16 @@ html, body {
   flex-direction: column;
   width: 100%;
   max-width: 100vw;
-  overflow-x: hidden;
 }
 
-/* Header */
+/* BANNER SCROLLS NATURALLY */
 .siteHeader {
+  position: relative;
   height: var(--bannerHeight);
   background: var(--magentaBright);
-  display: flex;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .bannerImage {
@@ -41,19 +43,17 @@ html, body {
   display: block;
 }
 
-/* Layout Structure */
+/* LAYOUT AREA */
 .layoutGrid {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: flex-start;
   gap: 1rem;
   width: 100%;
   padding: 1rem;
   box-sizing: border-box;
 }
 
-/* Sidebar */
+/* LEFT SIDEBAR */
 .siteSidebar {
   flex: 0 0 15rem;
   background: var(--purpleDarker);
@@ -75,21 +75,22 @@ html, body {
 
 .sidebarMenu {
   list-style: none;
-  padding: 0;
   text-align: center;
+  padding: 0;
+  margin: 0;
   width: 100%;
 }
 
 .sidebarMenuLink {
   color: var(--textLight);
   text-decoration: none;
-  display: block;
   padding: 0.5rem 0;
+  display: block;
 }
 
-/* Main Content */
+/* CENTER COLUMN */
 .mainContent {
-  flex: 1 1 auto;
+  flex: 2;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -110,6 +111,11 @@ html, body {
   height: auto;
   object-fit: cover;
   border-radius: 0.375em;
+  display: block;
+}
+
+.profileDetails {
+  flex: 1;
 }
 
 .profileName {
@@ -132,20 +138,15 @@ html, body {
   padding: 0.3rem 0.7rem;
   font-size: 0.9rem;
   color: var(--textLight);
-  background: none;
+  background: transparent;
   border: 1px solid var(--magentaBright);
   cursor: pointer;
 }
 
-/* Panels */
 .detailPanels {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
-
-.detailPanel {
-  display: block;
 }
 
 .likesGrid {
@@ -158,7 +159,7 @@ html, body {
   flex: 1 1 30%;
 }
 
-/* Featured Section */
+/* FEATURED CARDS */
 .featuredGrid {
   display: flex;
   flex-wrap: wrap;
@@ -167,15 +168,12 @@ html, body {
 
 .featuredCard {
   flex: 1 1 45%;
-  display: flex;
-  flex-direction: column;
   text-decoration: none;
   color: var(--textLight);
 }
 
 .featuredCardImage {
   width: 100%;
-  object-fit: cover;
   border-radius: 0.375em;
 }
 
@@ -184,23 +182,24 @@ html, body {
   margin-top: 0.5rem;
 }
 
-/* Social Links */
+/* SOCIAL */
 .socialLinks {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin: 1rem 0;
 }
 
 .socialButton {
   background: var(--purpleMid);
   color: var(--textLight);
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 1rem;
   text-decoration: none;
   border-radius: 0.25rem;
   font-size: 0.9rem;
 }
 
-/* Side Gallery */
+/* RIGHT GALLERY */
 .sideGallery {
   flex: 0 0 12rem;
   display: flex;
@@ -214,7 +213,7 @@ html, body {
   object-fit: cover;
 }
 
-/* Footer */
+/* FOOTER */
 .siteFooter {
   text-align: center;
   padding: 1rem;
@@ -223,7 +222,7 @@ html, body {
   width: 100%;
 }
 
-/* Responsive */
+/* RESPONSIVE TWEAKS */
 @media (max-width: 1024px) {
   .layoutGrid {
     flex-direction: column;
@@ -235,10 +234,7 @@ html, body {
     width: 100%;
   }
 
-  .likesGrid {
-    flex-direction: column;
-  }
-
+  .likesGrid,
   .featuredGrid {
     flex-direction: column;
   }
