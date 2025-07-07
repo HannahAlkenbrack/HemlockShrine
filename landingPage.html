@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hannah Vamp – FullPage Profile</title>
+  <link rel="stylesheet" href="css/v1.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skipLink">Skip to main content</a>
+
+  <div class="pageContainer">
+
+    <!-- HEADER: full-width banner -->
+    <header class="siteHeader" role="banner">
+      <img
+        src="imgs/banner/vampbanner.png"
+        alt=""
+        class="bannerImage"
+        loading="lazy"
+      />
+    </header>
+
+    <!-- GRID: SIDEBAR | MAIN | GALLERY -->
+    <div class="layoutGrid">
+
+      <!-- LEFT SIDEBAR -->
+      <aside class="siteSidebar" role="complementary">
+        <img
+          src="imgs/Roman/r1.png"
+          alt="Portrait of Roman"
+          class="sidebarAvatar"
+          loading="lazy"
+        />
+        <ul class="sidebarMenu">
+          <li><a href="#" class="sidebarMenuLink">Gallery</a></li>
+          <li><a href="#" class="sidebarMenuLink">Library</a></li>
+          <li><a href="#" class="sidebarMenuLink">Worlds</a></li>
+          <li><a href="#" class="sidebarMenuLink">About Me</a></li>
+          <li><a href="#" class="sidebarMenuLink">Commissions Info</a></li>
+        </ul>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main id="main-content" class="mainContent" role="main">
+        <div class="profileMain">
+
+          <!-- PROFILE IMAGE -->
+          <div class="profileImageContainer">
+            <img
+              src="imgs/Roman/r1.png"
+              alt="Main character illustration"
+              class="profileImage"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- PROFILE DETAILS & TABS -->
+          <div class="profileDetails">
+            <section class="profileInfoBox">
+              <h1 class="profileName">YOUR NAME</h1>
+              <p class="profileBio">
+                Fruitcake powder tiramisu lemon drops dragée jelly-o gummi bears gingerbread. Oat cake jelly carrot cake bear claw cheesecake sesame snaps pudding icing. Sweet brownie sugar plum topping cheesecake lemon drops. Sweet roll oat cake dessert pie croissant cotton candy. Sweet jelly jelly biscuit caramels.
+
+Dragée shortbread pie soufflé sesame snaps gummi bears. Candy apple pie tart fruitcake powder chupa chups jelly beans. Sweet biscuit pudding marzipan jelly pudding jujubes donut. Shortbread croissant gingerbread powder cotton candy dragée macaroon. Fruitcake marzipan shortbread chupa chups dragée danish bear claw chocolate bar cheesecake.
+              </p>
+            </section>
+
+            <nav class="detailTabs" role="tablist" aria-label="Detail Sections">
+              <button
+                class="detailTabButton"
+                role="tab"
+                id="dt-tab-notes"
+                aria-selected="true"
+                aria-controls="dt-panel-notes"
+              >Notes</button>
+              <button
+                class="detailTabButton"
+                role="tab"
+                id="dt-tab-likes"
+                aria-selected="false"
+                aria-controls="dt-panel-likes"
+              >Likes</button>
+              <button
+                class="detailTabButton"
+                role="tab"
+                id="dt-tab-art"
+                aria-selected="false"
+                aria-controls="dt-panel-art"
+              >Art</button>
+              <button
+                class="detailTabButton"
+                role="tab"
+                id="dt-tab-featured"
+                aria-selected="false"
+                aria-controls="dt-panel-featured"
+              >Featured</button>
+            </nav>
+
+            <div class="detailPanels">
+              <!-- Notes Panel -->
+              <section
+                id="dt-panel-notes"
+                class="detailPanel"
+                role="tabpanel"
+                aria-labelledby="dt-tab-notes"
+              >
+                <h3>Notes</h3>
+                <ul class="notesList">
+                  <li class="notesListItem">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </li>
+                  <li class="notesListItem">
+                    Maecenas facilisis ex quis enim condimentum.
+                  </li>
+                  <li class="notesListItem">
+                    Donec non dui id augue pellentesque aliquam.
+                  </li>
+                  <li class="notesListItem">
+                    Aliquam erat volutpat. Nulla nulla augue, auctor et ipsum.
+                  </li>
+                </ul>
+              </section>
+
+              <!-- Likes Panel -->
+              <section
+                id="dt-panel-likes"
+                class="detailPanel likesGrid"
+                role="tabpanel"
+                aria-labelledby="dt-tab-likes"
+                hidden
+              >
+                <div class="likesColumn">
+                  <h3 class="likesColumnHeader">Interests</h3>
+                  <ul class="likesColumnList">
+                    <li class="likesColumnItem">Fantasy novels</li>
+                    <li class="likesColumnItem">Midnight walks</li>
+                    <li class="likesColumnItem">Sketching characters</li>
+                  </ul>
+                </div>
+                <div class="likesColumn">
+                  <h3 class="likesColumnHeader">No Thanks</h3>
+                  <ul class="likesColumnList">
+                    <li class="likesColumnItem">Pop music</li>
+                    <li class="likesColumnItem">Early mornings</li>
+                    <li class="likesColumnItem">Crowded places</li>
+                  </ul>
+                </div>
+                <div class="likesColumn">
+                  <h3 class="likesColumnHeader">Hobbies</h3>
+                  <ul class="likesColumnList">
+                    <li class="likesColumnItem">Guitar practice</li>
+                    <li class="likesColumnItem">Origami</li>
+                    <li class="likesColumnItem">Cooking new recipes</li>
+                  </ul>
+                </div>
+              </section>
+
+              <!-- Art Panel -->
+              <section
+                id="dt-panel-art"
+                class="detailPanel"
+                role="tabpanel"
+                aria-labelledby="dt-tab-art"
+                hidden
+              >
+                <h3 class="commissionsSectionHeader">Commissions</h3>
+
+                <div class="commissionList">
+                  <div class="commissionRow">
+                    <span class="commissionLabel">Commissions</span>
+                    <span class="statusText">Closed</span>
+                    <a href="#" class="commissionButton">T.o.S.</a>
+                  </div>
+                  <div class="commissionRow">
+                    <span class="commissionLabel">Trades</span>
+                    <span class="statusText">Closed</span>
+                    <a href="#" class="commissionButton">Prices</a>
+                  </div>
+                  <div class="commissionRow">
+                    <span class="commissionLabel">Requests</span>
+                    <span class="statusText">Closed</span>
+                    <a href="#" class="commissionButton">Queue</a>
+                  </div>
+                </div>
+
+                <p class="commissionText">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ornare interdum massa, dignissim commodo ipsum dapibus et. Nullam venenatis nunc a tortor consequat, sed efficitur risus bibendum. Integer rhoncus cursus interdum.
+                </p>
+              </section>
+
+
+
+
+              <!-- Featured Panel -->
+              <section
+                id="dt-panel-featured"
+                class="detailPanel featuredGrid"
+                role="tabpanel"
+                aria-labelledby="dt-tab-featured"
+                hidden
+              >
+                <a href="characters/Roman.html" class="featuredCard">
+                  <img
+                    src="imgs/Roman/r1.png"
+                    alt="Roman"
+                    class="featuredCardImage"
+                  />
+                  <h3 class="featuredCardName">Roman</h3>
+                </a>
+                <a href="characters/Satoru.html" class="featuredCard">
+                  <img
+                    src="imgs/Satoru/s1.png"
+                    alt="Satoru"
+                    class="featuredCardImage"
+                  />
+                  <h3 class="featuredCardName">Satoru</h3>
+                </a>
+                <a href="characters/Character3.html" class="featuredCard">
+                  <img
+                    src="imgs/Character3/c3.png"
+                    alt="Character Three"
+                    class="featuredCardImage"
+                  />
+                  <h3 class="featuredCardName">Character Three</h3>
+                </a>
+                <a href="characters/Character4.html" class="featuredCard">
+                  <img
+                    src="imgs/Character4/c4.png"
+                    alt="Character Four"
+                    class="featuredCardImage"
+                  />
+                  <h3 class="featuredCardName">Character Four</h3>
+                </a>
+              </section>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOCIAL MEDIA BUTTONS -->
+        <section class="socialLinks">
+          <a href="https://twitter.com/yourprofile" class="socialButton twitter" target="_blank" rel="noopener">Twitter</a>
+          <a href="https://instagram.com/yourprofile" class="socialButton instagram" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://facebook.com/yourprofile" class="socialButton facebook" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://linkedin.com/in/yourprofile" class="socialButton linkedin" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://youtube.com/yourchannel" class="socialButton youtube" target="_blank" rel="noopener">YouTube</a>
+        </section>
+      </main>
+
+      <!-- RIGHT SIDE GALLERY -->
+      <aside class="sideGallery" aria-label="Side Gallery">
+        <img src="imgs/Roman/r1.png" alt="Side Image 1" class="sideGalleryImage" loading="lazy" />
+        <img src="imgs/Roman/r1.png" alt="Side Image 2" class="sideGalleryImage" loading="lazy" />
+        <img src="imgs/Roman/r1.png" alt="Side Image 3" class="sideGalleryImage" loading="lazy" />
+      </aside>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="siteFooter" role="contentinfo">
+      <p>© 2025 HannahAlkenbrack – All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="js/v1.js"></script>
+</body>
+</html>
